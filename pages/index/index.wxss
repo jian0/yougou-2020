@@ -35,3 +35,46 @@
   width: 128rpx;
   height: 128rpx
 }
+
+/* 楼层 */
+.floors{
+    /* height: 90rpx */
+}
+.floors .floors-title{
+  padding-top: 30rpx;
+  background-color: #f4f4f4;
+  width: 750rpx;
+  height: 90rpx
+}
+.floors-content{
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 16rpx
+}
+/* 左边大图 */
+.floors-left{
+  margin-right: 12rpx;
+  display: flex;
+  width: 230rpx;
+}
+.floors-left image{
+  height: 386rpx
+}
+/* 右边小图 */
+.floors-right{
+  display: flex;
+  flex: 1;
+  justify-content:space-between;
+  flex-wrap: wrap
+}
+.floors-right image{
+  width: 233rpx;
+  height: 188rpx
+}
+.floors + .floors .floors-right image{
+  width: 193rpx
+}
+
+.floors + .floors .floors-right image:nth-child(3n + 1){
+  width: 273rpx
+}

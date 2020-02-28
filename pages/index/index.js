@@ -2,7 +2,8 @@ import request from "../../utils/request.js"
 Page({
   data: {
     banners: [], // 轮播图数据
-    navs: [] // 导航栏数据
+    navs: [], // 导航栏数据
+    floors:[] //楼层数据
   },
   onLoad() {
     // 获取轮播图数据
@@ -20,10 +21,21 @@ Page({
     request({
       url: "/home/catitems"
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       const {message} = res.data
       this.setData({
         navs: message
+      })
+    })
+
+    // 获取楼层数据
+    request({
+      url:"/home/floordata"
+    }).then(res=>{
+      console.log(res)
+      const {message} = res.data
+      this.setData({
+        floors: message
       })
     })
   }

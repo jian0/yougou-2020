@@ -23,8 +23,28 @@
 
   <!-- 导航栏 -->
   <view class="navs">
-    <navigator  wx:for="{{navs}}" wx:key="index">
+    <navigator wx:for="{{navs}}" wx:key="index">
       <image src="{{item.image_src}}"></image>
     </navigator>
+  </view>
+
+  <!-- 楼层 -->
+  <view class="floors" wx:for="{{floors}}" wx:key="index">
+    <view>
+      <image class="floors-title" src="{{item.floor_title.image_src}}"></image>
+    </view>
+    <!-- 嵌套楼层 -->
+    <!-- 左边第一张大图 -->
+    <view class="floors-content">
+      <view class="floors-left">
+        <image src="{{item.product_list[0].image_src}}" mode="aspectFill"></image>
+      </view>
+      <!-- 右边四张小图 -->
+      <view class="floors-right">
+        <block wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index > 0}}">
+          <image src="{{item.image_src}}" mode="aspectFill"></image>
+        </block>
+      </view>
+    </view>
   </view>
 </view>
