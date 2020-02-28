@@ -20,4 +20,11 @@
       </swiper-item>
     </block>
   </swiper>
+
+  <!-- 导航栏 -->
+  <view class="navs">
+    <navigator  wx:for="{{navs}}" wx:key="index">
+      <image src="{{item.image_src}}"></image>
+    </navigator>
+  </view>
 </view>

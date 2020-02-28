@@ -23,3 +23,15 @@
   width: 750rpx;
   height: 340rpx
 }
+
+/* 导航栏 */
+.navs{
+  display: flex;
+  justify-content:space-around;
+  margin: 10rpx
+}
+
+.navs image{
+  width: 128rpx;
+  height: 128rpx
+}
