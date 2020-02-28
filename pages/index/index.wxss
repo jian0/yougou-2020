@@ -14,3 +14,12 @@
   display: flex;
   justify-content: center;
 }
+
+/* 轮播图 */
+.swiper-item{
+  height: 340rpx
+}
+.swiper-item image{
+  width: 750rpx;
+  height: 340rpx
+}

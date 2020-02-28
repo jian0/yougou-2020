@@ -11,7 +11,7 @@ const request = (config = {}) => {
   // resolve是 .then 里面的函数，一般请求成功时候执行
   // reject 是 .catch 里面的函数，一般用于请求失败时候执行
   return new Promise((resolve, reject) => {
-    vx.request({
+    wx.request({
       ...config,
       success(res) {
         // 成功时返回的回调函数
