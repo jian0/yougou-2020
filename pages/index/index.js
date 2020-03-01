@@ -56,6 +56,8 @@ Page({
 
   // 监听页面滚动事件
   onPageScroll(e) {
+        console.log(e)
+
     const {scrollTop} = e;
     let status = this.data.isShow;
     if (scrollTop > 100) {

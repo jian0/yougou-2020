@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 搜索框 -->
   <header></header>
-
+  <view class="main">
   <!-- 轮播图 -->
   <swiper class="banners" indicator-dots="{{true}}" indicator-color="rgba(0,0,0,0.3)" indicator-active-color="#fff" duration="{{200}}">
     <block wx:for="{{banners}}" wx:key="index">
@@ -40,10 +40,11 @@
       </view>
     </view>
   </view>
-
   <!-- 返回顶部 -->
   <view class="toTop" scroll-top="{{0}}" bindtap="scrollToTop" wx:if="{{isShow}}">
     <image src="../../images/arrow_top@2x.png"></image>
     <view style="font-size: 12px;">顶部</view>
   </view>
+  </view>
+
 </view>
