@@ -1,1 +1,34 @@
-/* pages/category/index.wxss */
+.content{
+  position: fixed;
+  top: 122rpx;
+  bottom: 0;
+  overflow: auto;
+}
+.left {
+  width: 200rpx;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.menus {
+  border-bottom: 1px #ccc solid;
+  padding: 20rpx 0;
+  position: relative;
+}
+
+.active {
+  color: red;
+  background: #fff;
+}
+
+.active::before {
+  display: block;
+  width: 3px;
+  height: 16px;
+  content: "";
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-8px);
+}

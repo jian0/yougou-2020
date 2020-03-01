@@ -1,2 +1,19 @@
 <!--pages/category/index.wxml-->
-<header/>
+<!-- 分类页 -->
+<view class="container">
+  <!-- 头部搜索框 -->
+  <header/>
+  <view class="content">
+  <!-- 左边菜单 -->
+  <view class="left">
+    <block wx:for="{{catData}}" wx:key="index">
+      <view 
+      class="menus {{current === index ? 'active' : ''}}" 
+      data-index="{{index}}"
+      bindtap="handleClick">{{item.cat_name}}</view>
+    </block>
+  </view>
+  <!-- 右边菜单 -->
+  <view class="right"></view>
+  </view>
+</view>
