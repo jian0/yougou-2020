@@ -1,13 +1,17 @@
-.content{
+.content {
   position: fixed;
   top: 122rpx;
   bottom: 0;
-  overflow: auto;
+  width: 750rpx;
+  display: flex;
+  justify-content: space-between;
 }
+
 .left {
   width: 200rpx;
   background: #f4f4f4;
   text-align: center;
+  overflow: auto;
 }
 
 .menus {
@@ -31,4 +35,44 @@
   left: 0;
   top: 50%;
   transform: translateY(-8px);
+}
+
+/* 右边商品详情 */
+
+.right {
+  flex: 1;
+  overflow: auto;
+}
+
+.title {
+  text-align: center;
+  padding: 20rpx;
+  color: #ccc
+}
+.title text{
+  color: #000
+}
+
+.child {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.child navigator {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-size: 12px;
+  padding: 10rpx;
+  width: 33.33%;
+  box-sizing: border-box;
+}
+
+.child image {
+  width: 100%;
 }

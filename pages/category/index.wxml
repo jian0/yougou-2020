@@ -4,16 +4,26 @@
   <!-- 头部搜索框 -->
   <header/>
   <view class="content">
-  <!-- 左边菜单 -->
-  <view class="left">
-    <block wx:for="{{catData}}" wx:key="index">
-      <view 
-      class="menus {{current === index ? 'active' : ''}}" 
-      data-index="{{index}}"
-      bindtap="handleClick">{{item.cat_name}}</view>
-    </block>
-  </view>
-  <!-- 右边菜单 -->
-  <view class="right"></view>
+    <!-- 左边菜单 -->
+    <view class="left">
+      <block wx:for="{{catData}}" wx:key="index">
+        <view class="menus {{current === index ? 'active' : ''}}" data-index="{{index}}" bindtap="handleClick">{{item.cat_name}}</view>
+      </block>
+    </view>
+    <!-- 右边菜单 -->
+    <view class="right">
+      <block wx:for="{{catData[current].children}}" wx:key="index">
+        <view class="title">/ <text>{{item.cat_name}}</text> /</view>
+        <!-- 内容 -->
+        <view class="child">
+          <block wx:for="{{item.children}}" wx:key="index">
+            <navigator src="">
+              <image src="{{item.cat_icon}}" mode="widthFix"></image>
+              <view>{{item.cat_name}}</view>
+            </navigator>
+          </block>
+        </view>
+      </block>
+    </view>
   </view>
 </view>
