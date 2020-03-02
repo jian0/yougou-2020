@@ -29,4 +29,10 @@
       </navigator>
     </block>
   </view>
+
+  <!-- 底部提示信息 -->
+  <view class="tips">
+    <view wx:if="{{hasMore}}">加载中...</view>
+    <view wx:if="{{!hasMore}}">我也是有底线的</view>
+  </view>
 </view>

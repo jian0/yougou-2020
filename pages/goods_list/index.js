@@ -5,83 +5,76 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods:[], //商品列表数据
-    current:0, //tab栏索引
-    pagenum:1 //页码
+    goods: [], //商品列表数据
+    current: 0, //tab栏索引
+    pagenum: 1, //页码
+    hasMore: true, //是否有更多数据
+    loading: true, //是否加载中
+    keyword: "" //关键字
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    const {keyword} = options
-    request({
-      url:"/goods/search",
-      data:{
-        query: keyword, //关键字
-        pagenum: this.data.pagenum, // 页码
-        pagesize:10 //显示的条数
-      }
-    }).then(res=>{
-      console.log(res)
-      const {goods} = res.data.message
-      this.setData({
-        goods
-      })
-    })
-  },
-  handleClick(e){
-    const {index} = e.target.dataset
+  onLoad: function(options) {
+    const {
+      keyword
+    } = options
     this.setData({
-      current:index
+      keyword
+    })
+    this.getData()
+  },
+  getData() {
+    setTimeout(() => {
+      request({
+        url: "/goods/search",
+        data: {
+          query: this.data.keyword, //关键字
+          pagenum: this.data.pagenum, // 页码
+          pagesize: 10 //显示的条数
+        }
+      }).then(res => {
+        // console.log(res)
+        const {goods} = res.data.message
+        // 价格后面加2位小数
+        const result = goods.map(v => {
+          v.goods_price = Number(v.goods_price).toFixed(2)
+          return v
+        })
+        this.setData({
+          goods: [...this.data.goods, ...result],
+          loading:false
+        })
+        if (this.data.goods.length >= res.data.message.total){
+          console.log(this.data.goods.length)
+          console.log(res.data.message.total)
+          this.setData({
+            hasMore:false
+          })
+        }
+      })
+    }, 2000);
+  },
+
+  // 点击tab栏时高亮
+  handleClick(e) {
+    const {
+      index
+    } = e.target.dataset
+    this.setData({
+      current: index
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 拉到底部时触发
+  onReachBottom() {
+    if (this.data.loading === false) {
+      this.setData({
+        loading: true,
+        pagenum: this.data.pagenum + 1
+      })
+      this.getData()
+    }
   }
 })
