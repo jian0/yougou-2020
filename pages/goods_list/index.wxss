@@ -1,5 +1,8 @@
 /* pages/goods_list/index.wxss */
+.search{
+  background: #eee!important
 
+}
 .tab {
   display: flex;
   justify-content: space-around;
