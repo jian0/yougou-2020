@@ -1,6 +1,6 @@
 <!--pages/goods_list/index.wxml-->
 <view class="container">
-  <header/>
+  <header keyword="{{keyword}}" algin="left"></header>
 
   <!-- 导航栏 -->
   <view class="tab">

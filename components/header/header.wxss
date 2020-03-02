@@ -17,3 +17,15 @@
   display: flex;
   justify-content: center;
 }
+
+.left{
+    justify-content: flex-start;
+}
+
+.center{
+    justify-content: center;
+}
+
+.right{
+    justify-content: flex-end;
+}

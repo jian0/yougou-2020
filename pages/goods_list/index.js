@@ -47,8 +47,8 @@ Page({
           loading:false
         })
         if (this.data.goods.length >= res.data.message.total){
-          console.log(this.data.goods.length)
-          console.log(res.data.message.total)
+          // console.log(this.data.goods.length)
+          // console.log(res.data.message.total)
           this.setData({
             hasMore:false
           })

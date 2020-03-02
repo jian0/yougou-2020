@@ -1,9 +1,9 @@
 <!--components/header/header.wxml-->
   <view class="search">
-    <view class="search-input">
-      <view class="search-content">
+    <view class="search-input background">
+      <view class="search-content {{algin}}">
         <icon type="search" size="22" style="margin-right:5px" />
-        <text style="color:#999">搜索</text>
+        <text style="color:#999">{{keyword}}</text>
       </view>
     </view>
   </view>
