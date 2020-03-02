@@ -1,9 +1,3 @@
-/* .main{
-  position: fixed;
-  top: 122rpx;
-  bottom: 0;
-  overflow: auto
-} */
 header{
   position: fixed;
   top: 0;

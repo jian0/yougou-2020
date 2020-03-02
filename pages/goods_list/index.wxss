@@ -1,0 +1,33 @@
+/* pages/goods_list/index.wxss */
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  width: 750rpx;
+  padding: 5rpx
+}
+
+image {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+
+.right {
+  display: inline-block;
+  width: 550rpx;
+}
+
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

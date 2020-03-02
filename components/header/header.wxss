@@ -2,6 +2,7 @@
 .search {
   background-color: #eb4450;
   padding: 10px;
+  width: 100%
 }
 
 .search-input {
