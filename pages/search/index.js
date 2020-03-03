@@ -7,8 +7,10 @@ Page({
    */
   data: {
     value: "", // 输入框内容
+    last_value: "", //最终输入的值
     goods: [], //搜索建议数据
-    history:[] //历史记录
+    history: [], //历史记录
+    hasMore: false // 开关：判断用户是否继续输入内容
   },
 
   /**
@@ -22,24 +24,32 @@ Page({
   },
   // 输入框输入时触发
   handleInput(e) {
-    // console.log(e)
-    const {value} = e.detail
+    console.log(e)
+    const {
+      value
+    } = e.detail
     this.setData({
       value
     })
+    if (!value) {
+      this.setData({
+        goods: []
+      })
+      return
+    }
     this.getGoods()
   },
   // 输入框失焦时触发
-  handleBlur(){
+  handleBlur() {
     this.setData({
-      value:"",
-      goods:[]
+      value: "",
+      goods: []
     })
   },
   // 点击取消按钮时触发
-  handleCancel(){
+  handleCancel() {
     this.setData({
-      value:""
+      value: ""
     })
   },
   // 点击确定按钮时触发
@@ -47,8 +57,8 @@ Page({
     // 取出数据
     let arr = wx.getStorageSync("list")
     // 如果本地储存的数据不是数据
-    if(!Array.isArray(arr)){
-      arr= []
+    if (!Array.isArray(arr)) {
+      arr = []
     }
     arr.unshift(this.data.value)
     // 数组去重
@@ -60,27 +70,38 @@ Page({
     })
   },
   // 点击关闭图标时触发
-  handleDel(){
+  handleDel() {
     this.setData({
-      history:[]
+      history: []
     })
     wx.setStorageSync("list", [])
   },
+  // 封装方法
   getGoods() {
-    request({
-      url: "/goods/qsearch",
-      data: {
-        query: this.data.value
-      }
-    }).then(res => {
-      // console.log(res)
-      const {
-        message
-      } = res.data
+    if (this.data.hasMore === false) {
+      // 进来后开启开光
       this.setData({
-        goods: message
+        hasMore: true,
+        last_value: this.data.value
       })
-    })
-
+      request({
+        url: "/goods/qsearch",
+        data: {
+          query: this.data.value
+        }
+      }).then(res => {
+        // console.log(res)
+        const {
+          message
+        } = res.data
+        this.setData({
+          goods: message,
+          hasMore: false
+        })
+        if (this.data.last_value !== this.data.value) {
+          this.getGoods()
+        }
+      })
+    }
   }
 })
