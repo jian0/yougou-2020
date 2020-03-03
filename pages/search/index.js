@@ -7,21 +7,23 @@ Page({
    */
   data: {
     value: "", // 输入框内容
-    goods: [] //搜索建议数据
+    goods: [], //搜索建议数据
+    history:[] //历史记录
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // this.getGoods()
+    let arr = wx.getStorageSync("list")
+    this.setData({
+      history: arr
+    })
   },
   // 输入框输入时触发
   handleInput(e) {
     // console.log(e)
-    const {
-      value
-    } = e.detail
+    const {value} = e.detail
     this.setData({
       value
     })
@@ -42,11 +44,27 @@ Page({
   },
   // 点击确定按钮时触发
   handleEnter() {
-
+    // 取出数据
+    let arr = wx.getStorageSync("list")
+    // 如果本地储存的数据不是数据
+    if(!Array.isArray(arr)){
+      arr= []
+    }
+    arr.unshift(this.data.value)
+    // 数组去重
+    arr = [...new Set(arr)]
+    // 存储到本地
+    wx.setStorageSync("list", arr)
+    wx.redirectTo({
+      url: "/pages/goods_list/index?keyword=" + this.data.value
+    })
   },
   // 点击关闭图标时触发
   handleDel(){
-    
+    this.setData({
+      history:[]
+    })
+    wx.setStorageSync("list", [])
   },
   getGoods() {
     request({
@@ -55,7 +73,7 @@ Page({
         query: this.data.value
       }
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       const {
         message
       } = res.data

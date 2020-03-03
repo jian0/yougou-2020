@@ -18,7 +18,7 @@
 
     <!-- 搜索建议 -->
     <view class="tips" wx:if="{{goods.length !== 0}}">
-      <navigator wx:for="{{goods}}" wx:index="index">
+      <navigator wx:for="{{goods}}" wx:key="index">
         <view class="goods-list">{{item.goods_name}}</view>
       </navigator>
     </view>
@@ -33,14 +33,7 @@
       <icon type="cancel" size="16px" bindtap="handleDel"></icon>
     </view>
     <view class="content">
-      <navigator class="item">小米</navigator>
-      <navigator class="item">小米</navigator>
-      <navigator class="item">小米3333333</navigator>
-      <navigator class="item">小米</navigator>
-      <navigator class="item">小米</navigator>
-      <navigator class="item">小米</navigator>
-      <navigator class="item">小米</navigator>
-
+      <navigator class="item" wx:for="{{history}}" wx:key="index">{{item}}</navigator>
     </view>
   </view>
 </view>
