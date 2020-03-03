@@ -3,9 +3,18 @@
   <view class="search">
     <view class="search-input">
       <icon type="search" size="22" style="margin-right:5px" />
-      <input style="color:#999" placeholder="请输入您想要的商品" bindinput="handleInput" bindconfirm="handleEnter"></input>
+      <input 
+      style="color:#999" 
+      placeholder="请输入您想要的商品" 
+      bindinput="handleInput" 
+      bindconfirm="handleEnter"
+      value="{{value}}"
+      bindblur="handleBlur"></input>
     </view>
-    <text class="cancel" wx:if="{{value}}">取消</text>
+    <text 
+    class="cancel" 
+    wx:if="{{value}}"
+    bindtap="handleCancel">取消</text>
 
     <!-- 搜索建议 -->
     <view class="tips" wx:if="{{goods.length !== 0}}">
@@ -21,7 +30,7 @@
   <view class="history">
     <view class="title">
       <view class="title-header">历史搜索</view>
-      <icon type="cancel" size="16px"></icon>
+      <icon type="cancel" size="16px" bindtap="handleDel"></icon>
     </view>
     <view class="content">
       <navigator class="item">小米</navigator>
