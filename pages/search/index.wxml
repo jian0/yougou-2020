@@ -3,11 +3,21 @@
   <view class="search">
     <view class="search-input">
       <icon type="search" size="22" style="margin-right:5px" />
-      <input style="color:#999" placeholder="请输入您想要的商品"></input>
+      <input style="color:#999" placeholder="请输入您想要的商品" bindinput="handleInput" bindconfirm="handleEnter"></input>
     </view>
     <text class="cancel" wx:if="{{value}}">取消</text>
+
+    <!-- 搜索建议 -->
+    <view class="tips" wx:if="{{goods.length !== 0}}">
+      <navigator wx:for="{{goods}}" wx:index="index">
+        <view class="goods-list">{{item.goods_name}}</view>
+      </navigator>
+    </view>
   </view>
 
+
+
+  <!-- 搜索历史 -->
   <view class="history">
     <view class="title">
       <view class="title-header">历史搜索</view>

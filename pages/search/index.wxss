@@ -1,13 +1,16 @@
+
 .search {
   background-color: #eeeeee;
   padding: 10px;
   display: flex;
+  position: relative
+
   /* text-align: center */
 }
 
 .search-input {
   background-color: #fff;
-  height: 60rpx;
+  height: 68rpx;
   flex: 1;
   border: 1px #ccc solid;
   border-radius: 5px;
@@ -27,6 +30,23 @@
   align-items: center;
   justify-content: center;
   margin-left: 20rpx
+}
+
+/* 搜索建议 */
+.tips{
+  width: 100%;
+  position: absolute;
+  left: 22rpx;
+  top: 98rpx;
+  /* bottom: 0; */
+  background: #fff;
+  overflow: auto
+}
+.goods-list{
+  padding: 17rpx;
+  border-bottom: 1px #ccc solid;
+  font-size: 14px;
+  color: #999
 }
 
 .title{
