@@ -1,0 +1,27 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search">
+    <view class="search-input">
+      <icon type="search" size="22" style="margin-right:5px" />
+      <input style="color:#999" placeholder="请输入您想要的商品"></input>
+    </view>
+    <text class="cancel" wx:if="{{value}}">取消</text>
+  </view>
+
+  <view class="history">
+    <view class="title">
+      <view class="title-header">历史搜索</view>
+      <icon type="cancel" size="16px"></icon>
+    </view>
+    <view class="content">
+      <navigator class="item">小米</navigator>
+      <navigator class="item">小米</navigator>
+      <navigator class="item">小米3333333</navigator>
+      <navigator class="item">小米</navigator>
+      <navigator class="item">小米</navigator>
+      <navigator class="item">小米</navigator>
+      <navigator class="item">小米</navigator>
+
+    </view>
+  </view>
+</view>

@@ -1,5 +1,5 @@
 <!--components/header/header.wxml-->
-<navigator url="">
+<navigator url="/pages/search/index">
   <view class="search background">
     <view class="search-input {{algin}}">
       <icon type="search" size="22" style="margin-right:5px" />
