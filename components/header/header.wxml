@@ -1,7 +1,9 @@
 <!--components/header/header.wxml-->
-    <view class="search background">
-      <view class="search-input {{algin}}">
-        <icon type="search" size="22" style="margin-right:5px" />
-        <text style="color:#999">{{keyword}}</text>
-      </view>
+<navigator url="">
+  <view class="search background">
+    <view class="search-input {{algin}}">
+      <icon type="search" size="22" style="margin-right:5px" />
+      <text style="color:#999">{{keyword}}</text>
     </view>
+  </view>
+</navigator>
