@@ -99,21 +99,52 @@ swiper {
   font-size: 16px;
 }
 
+.goods_detail {
+  padding-bottom: 20rpx;
+}
+
 /* tab栏 */
-.goods_detail_choose{
+
+.goods_detail_choose {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.item{
+
+.item {
   width: 50%;
   text-align: center;
   font-size: 18px;
   padding: 20rpx 0;
   background: #ccc;
-  margin-bottom: 10rpx
+  margin-bottom: 10rpx;
 }
-.active{
+
+.active {
   color: #fff;
-  background: red
+  background: red;
+}
+
+.goods_detail_argument_title {
+  text-align: center;
+  font-size: 20px;
+  padding: 20rpx 0;
+}
+
+.goods_detail_argument_des {
+  height: 400rpx;
+  overflow: auto;
+}
+
+.canshu {
+  margin-bottom: 20rpx;
+}
+
+.goods_detail_argument_left {
+  margin-right: 50rpx;
+}
+
+.goods_detail_argument_right {
+  font-size: 14px;
+  color: #f00;
 }

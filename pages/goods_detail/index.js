@@ -7,26 +7,35 @@ Page({
    */
   data: {
     goods:[], // 商品详情数据
-    current:0
+    current:0,
+    id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = 9817
+    // console.log(options)
+    const {goods_id} = options
     request({
       url:"/goods/detail",
       data:{
-        goods_id: id
+        goods_id
       }
     }).then(res=>{
       console.log(res)
       const {message} = res.data
       this.setData({
-        goods: message
+        goods: message,
+        id: goods_id
       })
     })
   },
-
+  handleClick(e){
+    // console.log(e)
+    const {index} = e.target.dataset
+    this.setData({
+      current: index
+    })
+  }
 })

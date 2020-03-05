@@ -12,9 +12,9 @@
 
   <!-- 商品标题 -->
   <view class="goods_info">
-    <view class="goods_info_price">￥279</view>
+    <view class="goods_info_price">￥{{goods.goods_price}}</view>
     <view class="goods_info_des">
-      <view class="goods_info_des_title">电视机电视机电视机电视机电视机电视机电视机电视机电视机电视机</view>
+      <view class="goods_info_des_title">{{goods.goods_name}}</view>
       <view class="goods_info_des_coll">
         <icon class="iconfont icon-shoucang"></icon>
         <view class="goods_info_des_collName">收藏</view>
@@ -30,7 +30,8 @@
       class="item {{current === index ? 'active' : ''}}" 
       wx:for="{{['商品详情','商品参数']}}" 
       wx:key="index"
-      >{{item}}</view>
+      bindtap="handleClick"
+      data-index="{{index}}">{{item}}</view>
     </view>
     <!-- 内容 -->
     <view class="goods_detail_content" wx:if="{{current === 0}}">
@@ -38,6 +39,15 @@
     </view>
     <!-- 参数 -->
     <view class="goods_detail_argument" wx:if="{{current === 1}}">
+      <view class="goods_detail_argument_title">商品参数</view>
+      <view class="goods_detail_argument_des">
+        <block wx:for="{{goods.attrs}}" wx:key="index">
+        <view class="canshu">
+          <text class="goods_detail_argument_left">{{item.attr_name}}:</text>
+          <text class="goods_detail_argument_right">{{item.attr_vals}}</text>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
 
