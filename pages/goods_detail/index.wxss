@@ -68,7 +68,17 @@ swiper {
   justify-content: space-between;
 }
 
-/* 324 */
+
+/* 打开客服会话 */
+.contact{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0
+}
 
 .kefu {
   background: #fff;

@@ -26,12 +26,7 @@
   <view class="goods_detail">
     <!-- tab栏 -->
     <view class="goods_detail_choose">
-      <view 
-      class="item {{current === index ? 'active' : ''}}" 
-      wx:for="{{['商品详情','商品参数']}}" 
-      wx:key="index"
-      bindtap="handleClick"
-      data-index="{{index}}">{{item}}</view>
+      <view class="item {{current === index ? 'active' : ''}}" wx:for="{{['商品详情','商品参数']}}" wx:key="index" bindtap="handleClick" data-index="{{index}}">{{item}}</view>
     </view>
     <!-- 内容 -->
     <view class="goods_detail_content" wx:if="{{current === 0}}">
@@ -42,9 +37,9 @@
       <view class="goods_detail_argument_title">商品参数</view>
       <view class="goods_detail_argument_des">
         <block wx:for="{{goods.attrs}}" wx:key="index">
-        <view class="canshu">
-          <text class="goods_detail_argument_left">{{item.attr_name}}:</text>
-          <text class="goods_detail_argument_right">{{item.attr_vals}}</text>
+          <view class="canshu">
+            <text class="goods_detail_argument_left">{{item.attr_name}}:</text>
+            <text class="goods_detail_argument_right">{{item.attr_vals}}</text>
           </view>
         </block>
       </view>
@@ -54,6 +49,9 @@
   <!-- 底部功能栏 -->
   <view class="goods_bottom">
     <view class="goods_bottom_left">
+      <view class="contact">
+        <button open-type="contact">打开客服会话</button>
+      </view>
       <view class="kefu">
         <icon class="iconfont icon-kefu"></icon>
         <view class="kefu_content">联系客服</view>
