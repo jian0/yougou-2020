@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtap="handleClick">
   <!-- 搜索框 -->
   <view class="search">
     <view class="search-input">
@@ -9,17 +9,18 @@
       bindinput="handleInput" 
       bindconfirm="handleEnter"
       value="{{value}}"
-      bindblur="handleBlur"></input>
+      ></input>
     </view>
     <text 
     class="cancel" 
     wx:if="{{value}}"
-    bindtap="handleCancel">取消</text>
+    bindtap="handleCancel"
+    >取消</text>
 
     <!-- 搜索建议 -->
     <view class="tips" wx:if="{{goods.length !== 0}}">
-      <navigator wx:for="{{goods}}" wx:key="index">
-        <view class="goods-list">{{item.goods_name}}</view>
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" wx:for="{{goods}}" wx:key="index">
+        <view class="goods-list" data-goods_id="{{item.goods_id}}">{{item.goods_name}}</view>
       </navigator>
     </view>
   </view>

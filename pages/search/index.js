@@ -24,7 +24,7 @@ Page({
   },
   // 输入框输入时触发
   handleInput(e) {
-    console.log(e)
+    // console.log(e)
     const {
       value
     } = e.detail
@@ -42,7 +42,6 @@ Page({
   // 输入框失焦时触发
   handleBlur() {
     this.setData({
-      value: "",
       goods: []
     })
   },
@@ -75,6 +74,16 @@ Page({
       history: []
     })
     wx.setStorageSync("list", [])
+  },
+  // 点击搜索建议时触发
+  handleClick(e) {
+    console.log(e)
+    const {goods_id} = e.target.dataset
+    if (!goods_id) {
+      this.setData({
+        goods: []
+      })
+    }
   },
   // 封装方法
   getGoods() {
