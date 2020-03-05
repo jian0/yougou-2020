@@ -52,6 +52,7 @@ swiper {
 /* 底部功能模块 */
 
 .goods_bottom {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -62,6 +63,7 @@ swiper {
 /* 左边 */
 
 .goods_bottom_left {
+  width: 40%;
   display: flex;
   justify-content: space-between;
 }
@@ -69,34 +71,38 @@ swiper {
 /* 324 */
 
 .kefu {
-  width: 142rpx;
   background: #fff;
   text-align: center;
   padding: 10rpx;
+  flex: 1
 }
 
 .kefu_content {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* 右边 */
 
 .goods_bottom_right {
+  width: 60%;
   display: flex;
   justify-content: space-between;
 }
 
 .goods_bottom_right :nth-child(2) {
   background: #eb4450;
+  /* padding-left: 43rpx */
 }
 
 .add {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 24rpx;
+  /* padding: 24rpx; */
   background: #f4b73f;
   color: #fff;
   font-size: 16px;
+  width: 50%
 }
 
 .goods_detail {
