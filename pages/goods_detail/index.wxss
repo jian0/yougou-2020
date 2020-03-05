@@ -1,0 +1,119 @@
+swiper {
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.swiper-item image {
+  width: 750rpx;
+  height: 750rpx;
+  flex-shrink: 0;
+}
+
+/* 商品详情 */
+
+.goods_info {
+  padding: 20rpx 0 19rpx 10rpx;
+}
+
+.goods_info_price {
+  color: red;
+  font-size: 20px;
+}
+
+.goods_info_des {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods_info_des_title {
+  flex: 1;
+  padding-right: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.goods_info_des_coll {
+  padding: 0 40rpx;
+  /* text-align: center; */
+  border-left: 1px #ccc solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.goods_info_des_collName {
+  font-size: 13px;
+}
+
+/* 底部功能模块 */
+
+.goods_bottom {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+/* 左边 */
+
+.goods_bottom_left {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 324 */
+
+.kefu {
+  width: 142rpx;
+  background: #fff;
+  text-align: center;
+  padding: 10rpx;
+}
+
+.kefu_content {
+  font-size: 14px;
+}
+
+/* 右边 */
+
+.goods_bottom_right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods_bottom_right :nth-child(2) {
+  background: #eb4450;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: #f4b73f;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* tab栏 */
+.goods_detail_choose{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.item{
+  width: 50%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20rpx 0;
+  background: #ccc;
+  margin-bottom: 10rpx
+}
+.active{
+  color: #fff;
+  background: red
+}
